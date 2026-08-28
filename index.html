@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sinistr — Après-sinistre 24/7, Grand Montréal | Licence RBQ 5834-5539-01</title>
+<meta name="description" content="Dégât d'eau, incendie, moisissure, décontamination et reconstruction. Équipe licenciée RBQ et certifiée IICRC, joignable 24 heures sur 24 dans le Grand Montréal, Laval, la Rive-Nord et la Rive-Sud.">
+<link rel="canonical" href="https://hostnextline.github.io/sinistr/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:site_name" content="Sinistr">
+<meta property="og:title" content="Sinistr — Après-sinistre 24/7, Grand Montréal">
+<meta property="og:description" content="Dégât d'eau, incendie, moisissure, reconstruction. Licence RBQ 5834-5539-01. Une personne répond, à toute heure.">
+<meta property="og:url" content="https://hostnextline.github.io/sinistr/">
+<meta property="og:image" content="https://hostnextline.github.io/sinistr/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sinistr — après-sinistre 24/7, Grand Montréal">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="theme-color" content="#EEF1F3">
+
+<link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="assets/polices/archivo-normal-400-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/polices/ibmplexmono-normal-500.woff2" crossorigin>
+
+<style>
+/* Polices servies depuis ce dépôt. Une feuille de style tierce bloquerait le
+   rendu, et la latence d'un autre domaine déciderait alors du score. */
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/polices/archivo-normal-400-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(assets/polices/ibmplexmono-normal-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(assets/polices/ibmplexmono-normal-500.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* ─────────────────────────────────────────────────────────────
+   Sinistr — « le relevé »
+   Le métier n'est pas le drame, c'est la mesure et la documentation.
+   Papier froid, encre profonde, un cobalt de signal. Aucun rouge :
+   c'est ce que font tous les concurrents et le site remplacé.
+   La monospace porte les données — licence, téléphone, relevés.
+   Rythme d'espacement en multiples de 8 px.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --papier:#EEF1F3;
+  --papier-clair:#F7F9FA;
+  --filet:#D5DCE1;
+  --encre:#0E161D;
+  --encre-doux:#48555F;
+  --discret:#7C8B95;
+  --signal:#1B45E0;
+  --signal-fonce:#1536B4;
+  --vivant:#0F9D58;
+
+  --s1:8px;  --s2:16px; --s3:24px; --s4:32px;
+  --s5:48px; --s6:64px; --s7:96px; --s8:128px;
+
+  --titre:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --donnee:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+
+  --mesure:min(92vw,1280px);
+  --transition:180ms cubic-bezier(.2,.6,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--papier);color:var(--encre);
+  font-family:var(--titre);font-size:17px;line-height:1.6;font-weight:400;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,h4,p,figure,blockquote,ol{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+.en{display:none}
+html[data-lang="en"] .fr{display:none}
+html[data-lang="en"] .en{display:revert}
+
+.enveloppe{width:var(--mesure);margin-inline:auto}
+
+/* ── Typographie ─────────────────────────────────────────────── */
+.etiquette{
+  font-family:var(--donnee);font-size:12px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--discret);
+  margin:0 0 var(--s3);
+}
+.titre{
+  font-weight:600;font-size:clamp(1.85rem,3.6vw,2.9rem);
+  line-height:1.1;letter-spacing:-.025em;margin:0 0 var(--s4);
+}
+.plomb{font-size:clamp(1rem,1.4vw,1.12rem);color:var(--encre-doux);max-width:58ch;margin:0 0 var(--s2)}
+
+/* ── En-tête ─────────────────────────────────────────────────── */
+.entete{position:absolute;inset:0 0 auto;z-index:3;padding-block:var(--s3)}
+.entete .enveloppe{display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
+.marque{font-weight:700;font-size:19px;letter-spacing:-.02em;text-decoration:none}
+.marque span{color:var(--signal)}
+.langues{display:flex;align-items:center;gap:4px;font-family:var(--donnee);font-size:12px}
+.langues button{
+  font:inherit;background:none;border:0;padding:4px 6px;cursor:pointer;
+  color:var(--discret);transition:color var(--transition);
+}
+.langues button:hover{color:var(--encre)}
+.langues button[aria-pressed="true"]{color:var(--encre);text-decoration:underline;text-underline-offset:4px}
+
+/* ── Hero ────────────────────────────────────────────────────── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:68% 50%}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(98deg,var(--papier) 6%,rgba(238,241,243,.92) 38%,rgba(238,241,243,.15) 72%);
+}
+.hero-contenu{position:relative;z-index:2;padding-block:var(--s8) var(--s7)}
+.hero h1{
+  font-weight:700;font-size:clamp(2.7rem,7vw,5.4rem);line-height:1.02;
+  letter-spacing:-.04em;max-width:14ch;margin:0 0 var(--s4);
+}
+.hero .plomb{margin-bottom:var(--s4);max-width:46ch}
+
+/* Signature — l'indicateur de disponibilité. Le produit de cette
+   entreprise, c'est qu'une personne décroche à 3 h du matin : autant
+   le montrer en direct plutôt que de l'écrire. */
+.dispo{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--donnee);font-size:13px;color:var(--encre-doux);
+  margin:0 0 var(--s5);
+}
+.pastille{width:9px;height:9px;border-radius:50%;background:var(--vivant);flex:none;position:relative}
+.pastille::after{
+  content:"";position:absolute;inset:0;border-radius:50%;background:var(--vivant);
+  animation:onde 2.4s cubic-bezier(.2,.6,.3,1) infinite;
+}
+@keyframes onde{0%{opacity:.55;transform:scale(1)}70%,100%{opacity:0;transform:scale(3.4)}}
+.horloge{font-variant-numeric:tabular-nums}
+
+/* ── Bouton ──────────────────────────────────────────────────── */
+.appel{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--signal);color:#FFFFFF;
+  font-family:var(--donnee);font-size:15px;font-weight:500;
+  text-decoration:none;padding:18px var(--s4);border-radius:3px;
+  transition:background var(--transition),transform var(--transition);
+}
+.appel:hover{background:var(--signal-fonce);transform:translateY(-1px)}
+.appel:active{transform:translateY(0)}
+.appel svg{width:16px;height:16px;flex:none}
+
+/* ── Bandeau de preuve ───────────────────────────────────────── */
+.preuve{border-block:1px solid var(--filet);background:var(--papier-clair)}
+.preuve ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--s3) var(--s5);padding-block:var(--s4)}
+.preuve li{display:grid;gap:4px}
+.preuve b{
+  font-family:var(--donnee);font-size:12px;font-weight:500;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--discret);
+}
+.preuve strong{font-family:var(--donnee);font-size:16px;font-weight:500}
+.preuve em{font-style:normal;font-size:14.5px;color:var(--encre-doux)}
+
+/* ── Sections ────────────────────────────────────────────────── */
+.section{padding-block:104px}
+.section--serre{padding-block:80px}
+.duo{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:var(--s5) var(--s7);align-items:start}
+.intro{max-width:56ch;margin-bottom:var(--s6)}
+
+/* ── Déroulé de l'intervention ───────────────────────────────── */
+.etape{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s3) var(--s4);
+  padding-block:var(--s4);border-top:1px solid var(--filet);align-items:start;
+}
+.etape:last-child{border-bottom:1px solid var(--filet)}
+.etape-n{font-family:var(--donnee);font-size:12px;font-weight:500;color:var(--signal);padding-top:5px}
+.etape h3{font-weight:600;font-size:1.18rem;letter-spacing:-.015em;margin:0 0 6px}
+.etape p{color:var(--encre-doux);font-size:15.5px;margin:0}
+
+/* ── Services ────────────────────────────────────────────────── */
+.familles{display:grid;gap:var(--s6)}
+.famille h3{
+  font-family:var(--donnee);font-size:12px;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--discret);margin:0 0 var(--s4);
+  padding-bottom:var(--s2);border-bottom:1px solid var(--filet);
+}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--s4) var(--s5)}
+.service h4{font-weight:600;font-size:1.05rem;letter-spacing:-.01em;margin:0 0 6px}
+.service p{color:var(--encre-doux);font-size:14.5px;margin:0}
+
+/* ── Avis ────────────────────────────────────────────────────── */
+.avis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5)}
+.avis figure{border-top:2px solid var(--encre);padding-top:var(--s3)}
+.avis blockquote{font-size:1.02rem;line-height:1.5}
+.avis figcaption{margin-top:var(--s3);font-family:var(--donnee);font-size:12px;color:var(--discret)}
+.avis figcaption b{display:block;font-weight:500;color:var(--encre);margin-bottom:3px}
+.mention{font-size:13.5px;color:var(--discret);margin-top:var(--s5);max-width:72ch}
+
+/* ── Territoire ──────────────────────────────────────────────── */
+.secteurs{display:flex;flex-wrap:wrap;gap:8px}
+.secteurs li{
+  font-family:var(--donnee);font-size:13px;color:var(--encre-doux);
+  border:1px solid var(--filet);background:var(--papier-clair);
+  padding:6px 12px;border-radius:2px;
+}
+
+/* ── Formulaire ──────────────────────────────────────────────── */
+.formulaire{display:grid;gap:var(--s3);max-width:520px}
+.champ{display:grid;gap:6px}
+.champ label{font-family:var(--donnee);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--discret)}
+.champ input,.champ textarea{
+  font:inherit;font-size:16px;color:var(--encre);
+  background:var(--papier-clair);border:1px solid var(--filet);border-radius:3px;
+  padding:12px 14px;transition:border-color var(--transition);
+}
+.champ input:focus,.champ textarea:focus{border-color:var(--signal);outline:none}
+.champ textarea{resize:vertical;min-height:110px}
+.formulaire button{
+  font-family:var(--donnee);font-size:15px;font-weight:500;color:#FFFFFF;
+  background:var(--encre);border:0;border-radius:3px;padding:16px var(--s4);
+  cursor:pointer;justify-self:start;transition:background var(--transition);
+}
+.formulaire button:hover{background:#1D2A34}
+.reponse{
+  font-size:14.5px;line-height:1.55;padding:14px 16px;border-radius:3px;
+  border:1px solid var(--filet);background:var(--papier-clair);
+}
+.reponse[hidden]{display:none}
+.reponse a{font-weight:600;color:var(--signal)}
+
+/* ── Pied de page ────────────────────────────────────────────── */
+.pied{background:var(--encre);color:var(--papier);padding-block:var(--s8) var(--s5)}
+.pied a{text-decoration:none}
+.pied-haut{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s5);align-items:end;padding-bottom:var(--s7)}
+.pied h2{font-weight:700;font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1.06;letter-spacing:-.035em;margin:0;max-width:18ch}
+.pied .appel{background:var(--papier);color:var(--encre)}
+.pied .appel:hover{background:#FFFFFF}
+.pied-grille{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--s5);
+  padding-block:var(--s6);border-top:1px solid rgba(238,241,243,.16);
+}
+.pied-grille h3{
+  font-family:var(--donnee);font-size:12px;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--discret);margin:0 0 var(--s2);
+}
+.pied-grille li+li{margin-top:10px}
+.pied-grille a,.pied-grille p{font-size:15px;color:var(--papier);opacity:.85;transition:opacity var(--transition)}
+.pied-grille a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.pied-grille .mono{font-family:var(--donnee);font-size:14px}
+.pied-bas{
+  display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);justify-content:space-between;
+  padding-top:var(--s5);border-top:1px solid rgba(238,241,243,.16);
+  font-family:var(--donnee);font-size:12px;color:var(--discret);
+}
+
+/* ── Barre d'appel mobile ────────────────────────────────────── */
+.barre{
+  position:fixed;inset:auto 0 0;z-index:9;display:none;
+  background:var(--signal);color:#FFFFFF;text-decoration:none;
+  font-family:var(--donnee);font-size:15px;font-weight:500;
+  padding:16px;text-align:center;
+}
+
+/* ── Révélations ─────────────────────────────────────────────── */
+.reveler{opacity:0;transform:translateY(16px);
+  transition:opacity 650ms cubic-bezier(.19,1,.22,1),transform 650ms cubic-bezier(.19,1,.22,1)}
+.reveler.vu{opacity:1;transform:none}
+.reveler.d1{transition-delay:70ms}
+.reveler.d2{transition-delay:140ms}
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+@media (max-width:880px){
+  body{font-size:16px}
+  .duo{grid-template-columns:1fr;gap:var(--s4)}
+  .avis{grid-template-columns:1fr}
+  .section{padding-block:80px}
+  .section--serre{padding-block:64px}
+  .hero-contenu{padding-block:var(--s7) var(--s8)}
+  .hero-media::after{background:linear-gradient(172deg,var(--papier) 16%,rgba(238,241,243,.93) 52%,rgba(238,241,243,.3) 100%)}
+  .hero-media img{object-position:60% 46%}
+  .pied-haut{grid-template-columns:1fr;align-items:start;gap:var(--s4)}
+  .etape{grid-template-columns:1fr;gap:6px}
+  .barre{display:block}
+  .pied{padding-bottom:var(--s8)}
+}
+@media (max-width:440px){
+  .appel{width:100%;justify-content:center}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveler{opacity:1;transform:none}
+  .pastille::after{display:none}
+}
+@media print{
+  .reveler{opacity:1;transform:none}
+  .hero{min-height:auto}
+  .barre{display:none}
+}
+</style>
+
+<noscript><style>.reveler{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<header class="entete">
+  <div class="enveloppe">
+    <a class="marque" href="#" aria-label="Sinistr, retour en haut de page">Sinistr<span>.</span></a>
+    <div class="langues">
+      <button type="button" data-set-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ── Hero ──────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-media">
+    <img src="assets/hero.jpg" width="1600" height="894" fetchpriority="high"
+         alt="Pièce de sous-sol entièrement remise en état après un dégât d’eau : murs repeints, plancher de bois neuf, appareils de séchage rangés le long du mur.">
+  </div>
+
+  <div class="enveloppe hero-contenu">
+    <p class="etiquette">
+      <span class="fr">Montréal · Laval · Longueuil · Rive-Nord · Rive-Sud</span>
+      <span class="en">Montréal · Laval · Longueuil · North Shore · South Shore</span>
+    </p>
+
+    <h1>
+      <span class="fr">On vous ramène ici.</span>
+      <span class="en">We bring you back to this.</span>
+    </h1>
+
+    <p class="plomb">
+      <span class="fr">Dégât d’eau, incendie, moisissure, décontamination et reconstruction. Une équipe licenciée RBQ et certifiée IICRC, joignable à toute heure.</span>
+      <span class="en">Water damage, fire, mould, decontamination and rebuilding. An RBQ-licensed, IICRC-certified team, reachable at any hour.</span>
+    </p>
+
+    <p class="dispo">
+      <span class="pastille" aria-hidden="true"></span>
+      <span class="fr">Une personne répond maintenant · <span class="horloge" data-horloge>—</span> à Montréal</span>
+      <span class="en">Someone is answering right now · <span class="horloge" data-horloge>—</span> in Montréal</span>
+    </p>
+
+    <a class="appel" href="tel:+18776574647">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+        <path d="M4.4 1.3 6 1a1 1 0 0 1 1.1.6l.9 2.1a1 1 0 0 1-.3 1.1l-1 .9a9 9 0 0 0 3.6 3.6l.9-1a1 1 0 0 1 1.1-.3l2.1.9A1 1 0 0 1 15 10l-.3 1.6a1.3 1.3 0 0 1-1.3 1C7 12.4 3.6 9 3.4 2.6a1.3 1.3 0 0 1 1-1.3Z"/>
+      </svg>
+      <span class="fr">Appeler le 1 877 657-4647</span>
+      <span class="en">Call 1 877 657-4647</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── Bandeau de preuve ─────────────────────────────────────── -->
+<div class="preuve">
+  <div class="enveloppe">
+    <ul>
+      <li>
+        <b><span class="fr">Licence RBQ</span><span class="en">RBQ licence</span></b>
+        <strong>5834-5539-01</strong>
+        <em><span class="fr">Vérifiable au registre de la Régie du bâtiment</span><span class="en">Verifiable in the Régie du bâtiment registry</span></em>
+      </li>
+      <li>
+        <b><span class="fr">Certification</span><span class="en">Certification</span></b>
+        <strong>IICRC</strong>
+        <em><span class="fr">Techniciens certifiés en restauration</span><span class="en">Certified restoration technicians</span></em>
+      </li>
+      <li>
+        <b><span class="fr">Décontamination</span><span class="en">Decontamination</span></b>
+        <strong><span class="fr">Santé publique</span><span class="en">Public health</span></strong>
+        <em><span class="fr">Spécialistes reconnus en décontamination biologique</span><span class="en">Recognized biological decontamination specialists</span></em>
+      </li>
+      <li>
+        <b><span class="fr">Disponibilité</span><span class="en">Availability</span></b>
+        <strong>24 / 7 / 365</strong>
+        <em><span class="fr">Jours fériés compris</span><span class="en">Holidays included</span></em>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── Ce qui se passe quand vous appelez ────────────────────── -->
+<section class="section" id="deroule">
+  <div class="enveloppe duo">
+    <div class="reveler">
+      <p class="etiquette"><span class="fr">L’intervention</span><span class="en">The intervention</span></p>
+      <h2 class="titre">
+        <span class="fr">Ce qui se passe quand vous appelez</span>
+        <span class="en">What happens when you call</span>
+      </h2>
+      <p class="plomb">
+        <span class="fr">Un sinistre se gère en quatre temps. Les deux premiers limitent les dégâts ; les deux suivants décident de ce que votre assureur remboursera.</span>
+        <span class="en">A loss is handled in four stages. The first two limit the damage; the last two decide what your insurer will cover.</span>
+      </p>
+    </div>
+
+    <ol class="reveler d1">
+      <li class="etape">
+        <span class="etape-n">01</span>
+        <div>
+          <h3><span class="fr">Une personne répond</span><span class="en">A person answers</span></h3>
+          <p>
+            <span class="fr">À toute heure, 365 jours par année, jours fériés compris. On établit la nature du sinistre et ce que vous devez faire tout de suite — couper l’eau, couper le courant, ne pas réintégrer les lieux.</span>
+            <span class="en">At any hour, 365 days a year, holidays included. We establish the nature of the loss and what you must do right away — shut off the water, shut off the power, do not re-enter.</span>
+          </p>
+        </div>
+      </li>
+      <li class="etape">
+        <span class="etape-n">02</span>
+        <div>
+          <h3><span class="fr">On arrête la source et on sécurise</span><span class="en">We stop the source and secure</span></h3>
+          <p>
+            <span class="fr">Extraction et pompage de l’eau, barricadage des ouvertures, bâches sur les toitures et murs endommagés, confinement des zones contaminées. Tant que la source coule, tout le reste est inutile.</span>
+            <span class="en">Water extraction and pumping, boarding up openings, tarps over damaged roofs and walls, containment of contaminated areas. While the source is still running, everything else is pointless.</span>
+          </p>
+        </div>
+      </li>
+      <li class="etape">
+        <span class="etape-n">03</span>
+        <div>
+          <h3><span class="fr">On mesure et on documente</span><span class="en">We measure and document</span></h3>
+          <p>
+            <span class="fr">Thermographie infrarouge pour repérer l’humidité derrière les finitions, tests de qualité de l’air, relevés photographiques. C’est ce dossier qui appuie votre réclamation — pas la parole de qui que ce soit.</span>
+            <span class="en">Infrared thermography to find moisture behind finishes, air quality testing, photographic records. This file is what supports your claim — not anyone’s word.</span>
+          </p>
+        </div>
+      </li>
+      <li class="etape">
+        <span class="etape-n">04</span>
+        <div>
+          <h3><span class="fr">On assèche, on décontamine, on reconstruit</span><span class="en">We dry, decontaminate and rebuild</span></h3>
+          <p>
+            <span class="fr">Déshumidificateurs et ventilateurs industriels, traitement antimicrobien, filtration HEPA. Puis la reconstruction jusqu’aux finitions — solives, poutres, chevrons, brique, crépi, bardage.</span>
+            <span class="en">Dehumidifiers and industrial air movers, antimicrobial treatment, HEPA filtration. Then the rebuild through to the finishes — joists, beams, rafters, brick, stucco, siding.</span>
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ── Services ──────────────────────────────────────────────── -->
+<section class="section section--serre" id="services">
+  <div class="enveloppe">
+    <div class="reveler intro">
+      <p class="etiquette"><span class="fr">Les services</span><span class="en">Services</span></p>
+      <h2 class="titre">
+        <span class="fr">De l’urgence à la remise des clés</span>
+        <span class="en">From the emergency to the handover</span>
+      </h2>
+    </div>
+
+    <div class="familles">
+      <div class="famille reveler">
+        <h3><span class="fr">Après-sinistre</span><span class="en">Post-loss</span></h3>
+        <div class="services">
+          <div class="service"><h4><span class="fr">Dégât d’eau</span><span class="en">Water damage</span></h4>
+            <p><span class="fr">Extraction, assèchement et restauration après inondation, refoulement ou fuite.</span><span class="en">Extraction, drying and restoration after flooding, backup or leak.</span></p></div>
+          <div class="service"><h4><span class="fr">Incendie et fumée</span><span class="en">Fire and smoke</span></h4>
+            <p><span class="fr">Nettoyage des suies, désodorisation, traitement de l’air et reconstruction.</span><span class="en">Soot cleaning, deodorization, air treatment and rebuilding.</span></p></div>
+          <div class="service"><h4><span class="fr">Moisissure</span><span class="en">Mould</span></h4>
+            <p><span class="fr">Détection, confinement, décontamination et traitement antimicrobien préventif.</span><span class="en">Detection, containment, decontamination and preventive antimicrobial treatment.</span></p></div>
+          <div class="service"><h4><span class="fr">Nettoyage après sinistre</span><span class="en">Post-loss cleaning</span></h4>
+            <p><span class="fr">Surfaces, contenu, biens personnels et remise en état finale.</span><span class="en">Surfaces, contents, personal belongings and final restoration.</span></p></div>
+          <div class="service"><h4><span class="fr">Barricadage et vandalisme</span><span class="en">Board-up and vandalism</span></h4>
+            <p><span class="fr">Sécurisation des ouvertures, clôtures temporaires, protection contre les intempéries.</span><span class="en">Securing openings, temporary fencing, weather protection.</span></p></div>
+          <div class="service"><h4><span class="fr">Scène de trauma</span><span class="en">Trauma scene</span></h4>
+            <p><span class="fr">Intervention discrète, en tenue civile et sans marquage sur les véhicules si demandé.</span><span class="en">Discreet intervention, plain clothes and unmarked vehicles on request.</span></p></div>
+          <div class="service"><h4><span class="fr">Décontamination</span><span class="en">Decontamination</span></h4>
+            <p><span class="fr">Agents biologiques, chimiques ou environnementaux. Filtration HEPA, produits homologués Santé Canada.</span><span class="en">Biological, chemical or environmental agents. HEPA filtration, Health Canada approved products.</span></p></div>
+        </div>
+      </div>
+
+      <div class="famille reveler d1">
+        <h3><span class="fr">Construction</span><span class="en">Construction</span></h3>
+        <div class="services">
+          <div class="service"><h4><span class="fr">Reconstruction après sinistre</span><span class="en">Post-loss rebuilding</span></h4>
+            <p><span class="fr">Évaluation structurelle, démolition contrôlée, reconstruction et finitions, coordonnées avec votre assureur.</span><span class="en">Structural assessment, controlled demolition, rebuilding and finishes, coordinated with your insurer.</span></p></div>
+          <div class="service"><h4><span class="fr">Rénovation structurelle</span><span class="en">Structural renovation</span></h4>
+            <p><span class="fr">Fondations, charpente, étanchéisation, revêtements extérieurs, toiture et mise aux normes.</span><span class="en">Foundations, framing, waterproofing, exterior cladding, roofing and code compliance.</span></p></div>
+        </div>
+      </div>
+
+      <div class="famille reveler d2">
+        <h3><span class="fr">Prévention</span><span class="en">Prevention</span></h3>
+        <div class="services">
+          <div class="service"><h4><span class="fr">Recherche de cause d’infiltration</span><span class="en">Infiltration source investigation</span></h4>
+            <p><span class="fr">Thermographie, test d’étanchéité par pluie contrôlée, endoscopie. On trouve la source avant que vous payiez des travaux.</span><span class="en">Thermography, controlled water testing, endoscopy. We find the source before you pay for any work.</span></p></div>
+          <div class="service"><h4><span class="fr">Inspection préventive</span><span class="en">Preventive inspection</span></h4>
+            <p><span class="fr">Toiture, fondations, plomberie, drainage et qualité de l’air, avec rapport priorisé.</span><span class="en">Roof, foundations, plumbing, drainage and air quality, with a prioritized report.</span></p></div>
+          <div class="service"><h4><span class="fr">Plan de prévention</span><span class="en">Prevention plan</span></h4>
+            <p><span class="fr">Audit de risques, procédures d’urgence, formation des occupants et révision annuelle.</span><span class="en">Risk audit, emergency procedures, occupant training and annual review.</span></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Avis ──────────────────────────────────────────────────── -->
+<section class="section section--serre" id="avis">
+  <div class="enveloppe">
+    <div class="reveler intro">
+      <p class="etiquette"><span class="fr">Les avis</span><span class="en">Reviews</span></p>
+      <h2 class="titre">
+        <span class="fr">4,7 sur 15 avis Google</span>
+        <span class="en">4.7 from 15 Google reviews</span>
+      </h2>
+    </div>
+
+    <div class="avis">
+      <figure class="reveler">
+        <blockquote lang="en">« The Sinistr team is truly exceptional and genuinely cares about its clients. They exceeded all of our expectations! »</blockquote>
+        <figcaption><b>Dumitru Fetco</b>
+          <span class="fr">Avis Google · Local Guide</span><span class="en">Google review · Local Guide</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="mention reveler">
+      <span class="fr">Avis publié sur Google, reproduit sans retouche. Les autres avis de la fiche ont été rédigés en français puis traduits automatiquement par Google : ils seront ajoutés ici dans leur version française d’origine, jamais dans leur traduction.</span>
+      <span class="en">Review published on Google, reproduced unedited. The other reviews on the profile were written in French and machine-translated by Google: they will be added here in their original French, never in translation.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ── Assureurs et gestionnaires ────────────────────────────── -->
+<section class="section section--serre" id="partenaires">
+  <div class="enveloppe duo">
+    <div class="reveler">
+      <p class="etiquette"><span class="fr">Assureurs et gestionnaires</span><span class="en">Insurers and property managers</span></p>
+      <h2 class="titre">
+        <span class="fr">Un dossier qui tient debout</span>
+        <span class="en">A file that holds up</span>
+      </h2>
+    </div>
+    <div class="reveler d1">
+      <p class="plomb">
+        <span class="fr">Pour un assureur comme pour un gestionnaire d’immeubles, la valeur n’est pas dans la vitesse du camion : elle est dans la qualité du dossier. Relevés, photos, devis détaillés, rapport de décontamination — transmis dans une forme qui accélère le règlement au lieu de le ralentir.</span>
+        <span class="en">For an insurer as for a property manager, the value is not in how fast the truck arrives: it is in the quality of the file. Readings, photographs, itemized quotes, decontamination reports — delivered in a form that speeds settlement up rather than slowing it down.</span>
+      </p>
+      <p class="plomb">
+        <span class="fr">Pour les compagnies de gestion et les syndicats de copropriété : un interlocuteur unique, plusieurs unités traitées en parallèle, et une documentation intégrable telle quelle au rapport du conseil d’administration.</span>
+        <span class="en">For management companies and condo boards: a single point of contact, several units handled in parallel, and documentation that drops straight into the board’s report.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Territoire ────────────────────────────────────────────── -->
+<section class="section section--serre" id="territoire">
+  <div class="enveloppe duo">
+    <div class="reveler">
+      <p class="etiquette"><span class="fr">Le territoire</span><span class="en">Service area</span></p>
+      <h2 class="titre">
+        <span class="fr">Trente-six secteurs</span>
+        <span class="en">Thirty-six areas</span>
+      </h2>
+      <p class="plomb">
+        <span class="fr">L’île de Montréal, l’Ouest-de-l’Île, Laval, la Rive-Nord et la Rive-Sud.</span>
+        <span class="en">The island of Montréal, the West Island, Laval, the North Shore and the South Shore.</span>
+      </p>
+    </div>
+    <div class="reveler d1">
+      <ul class="secteurs">
+        <li>Montréal</li><li>Montréal-Ouest</li><li>Montréal-Est</li><li>Plateau-Mont-Royal</li>
+        <li>Rosemont</li><li>Villeray</li><li>Ahuntsic</li><li>Saint-Laurent</li>
+        <li>Dollard-des-Ormeaux</li><li>Pointe-Claire</li><li>Kirkland</li><li>Beaconsfield</li>
+        <li>Vaudreuil-Dorion</li><li>Laval</li><li>Chomedey</li><li>Sainte-Rose</li>
+        <li>Vimont</li><li>Longueuil</li><li>Brossard</li><li>Saint-Lambert</li>
+        <li>Greenfield Park</li><li>LeMoyne</li><li>Boucherville</li><li>Saint-Bruno</li>
+        <li>Saint-Basile-le-Grand</li><li>McMasterville</li><li>Terrebonne</li><li>Mascouche</li>
+        <li>Repentigny</li><li>L’Assomption</li><li>Lavaltrie</li><li>Boisbriand</li>
+        <li>Rosemère</li><li>Sainte-Thérèse</li><li>Blainville</li><li>Saint-Jérôme</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── La protection légale ──────────────────────────────────── -->
+<section class="section section--serre" id="protection">
+  <div class="enveloppe duo">
+    <div class="reveler">
+      <p class="etiquette"><span class="fr">La protection</span><span class="en">Your protection</span></p>
+      <h2 class="titre">
+        <span class="fr">Cinq ans, prévus par la loi</span>
+        <span class="en">Five years, written into law</span>
+      </h2>
+    </div>
+    <div class="reveler d1">
+      <p class="plomb">
+        <span class="fr">L’article 2118 du Code civil du Québec tient l’entrepreneur responsable de la perte de l’ouvrage causée par un vice de conception, de construction ou du sol, pendant cinq ans après la fin des travaux. Cette protection s’applique de plein droit : elle ne dépend d’aucune promesse commerciale, et personne ne peut vous la retirer.</span>
+        <span class="en">Article 2118 of the Civil Code of Québec holds the contractor liable for loss of the work caused by a defect in design, construction or the ground, for five years after the work is completed. This protection applies as of right: it depends on no marketing promise, and no one can take it away from you.</span>
+      </p>
+      <p class="plomb">
+        <span class="fr">Elle suppose en revanche que les travaux soient exécutés par un entrepreneur titulaire d’une licence de la Régie du bâtiment. C’est la raison pour laquelle le numéro est affiché en haut de cette page plutôt qu’en petits caractères en bas.</span>
+        <span class="en">It does require the work to be carried out by a contractor holding a Régie du bâtiment licence. That is why the number appears at the top of this page rather than in small print at the bottom.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ───────────────────────────────────────────────── -->
+<section class="section section--serre" id="contact">
+  <div class="enveloppe duo">
+    <div class="reveler">
+      <p class="etiquette"><span class="fr">Nous joindre</span><span class="en">Get in touch</span></p>
+      <h2 class="titre">
+        <span class="fr">En urgence, appelez</span>
+        <span class="en">In an emergency, call</span>
+      </h2>
+      <p class="plomb">
+        <span class="fr">Le téléphone est le canal le plus rapide, à toute heure. Pour une demande qui n’est pas urgente, le formulaire suffit.</span>
+        <span class="en">The phone is the fastest channel, at any hour. For anything that is not urgent, the form will do.</span>
+      </p>
+      <a class="appel" href="tel:+18776574647">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M4.4 1.3 6 1a1 1 0 0 1 1.1.6l.9 2.1a1 1 0 0 1-.3 1.1l-1 .9a9 9 0 0 0 3.6 3.6l.9-1a1 1 0 0 1 1.1-.3l2.1.9A1 1 0 0 1 15 10l-.3 1.6a1.3 1.3 0 0 1-1.3 1C7 12.4 3.6 9 3.4 2.6a1.3 1.3 0 0 1 1-1.3Z"/>
+        </svg>
+        <span class="fr">Appeler le 1 877 657-4647</span>
+        <span class="en">Call 1 877 657-4647</span>
+      </a>
+    </div>
+
+    <form class="formulaire reveler d1" id="formulaire" novalidate>
+      <div class="champ">
+        <label for="f-nom"><span class="fr">Nom complet</span><span class="en">Full name</span></label>
+        <input id="f-nom" name="nom" type="text" autocomplete="name" required>
+      </div>
+      <div class="champ">
+        <label for="f-tel"><span class="fr">Téléphone</span><span class="en">Phone</span></label>
+        <input id="f-tel" name="telephone" type="tel" autocomplete="tel" required>
+      </div>
+      <div class="champ">
+        <label for="f-courriel"><span class="fr">Courriel</span><span class="en">Email</span></label>
+        <input id="f-courriel" name="courriel" type="email" autocomplete="email" required>
+      </div>
+      <div class="champ">
+        <label for="f-message"><span class="fr">Votre situation</span><span class="en">Your situation</span></label>
+        <textarea id="f-message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit"><span class="fr">Envoyer la demande</span><span class="en">Send request</span></button>
+      <p class="reponse" id="reponse" role="status" aria-live="polite" hidden></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ── Pied de page ──────────────────────────────────────────── -->
+<footer class="pied">
+  <div class="enveloppe">
+    <div class="pied-haut">
+      <h2>
+        <span class="fr">Il est toujours trop tôt pour attendre demain.</span>
+        <span class="en">It is always too early to wait until tomorrow.</span>
+      </h2>
+      <a class="appel" href="tel:+18776574647">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M4.4 1.3 6 1a1 1 0 0 1 1.1.6l.9 2.1a1 1 0 0 1-.3 1.1l-1 .9a9 9 0 0 0 3.6 3.6l.9-1a1 1 0 0 1 1.1-.3l2.1.9A1 1 0 0 1 15 10l-.3 1.6a1.3 1.3 0 0 1-1.3 1C7 12.4 3.6 9 3.4 2.6a1.3 1.3 0 0 1 1-1.3Z"/>
+        </svg>
+        <span class="fr">Appeler le 1 877 657-4647</span>
+        <span class="en">Call 1 877 657-4647</span>
+      </a>
+    </div>
+
+    <div class="pied-grille">
+      <div>
+        <h3><span class="fr">Urgence</span><span class="en">Emergency</span></h3>
+        <ul>
+          <li><a class="mono" href="tel:+18776574647">1 877 657-4647</a></li>
+          <li><a class="mono" href="mailto:urgence@sinistr.ca">urgence@sinistr.ca</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="fr">Disponibilité</span><span class="en">Availability</span></h3>
+        <p><span class="fr">24 heures sur 24, 7 jours sur 7, 365 jours par année, jours fériés compris.</span><span class="en">24 hours a day, 7 days a week, 365 days a year, holidays included.</span></p>
+      </div>
+      <div>
+        <h3><span class="fr">Territoire</span><span class="en">Service area</span></h3>
+        <p><span class="fr">Montréal, Laval, Longueuil, Rive-Nord, Rive-Sud</span><span class="en">Montréal, Laval, Longueuil, North Shore, South Shore</span></p>
+      </div>
+      <div>
+        <h3><span class="fr">Licence</span><span class="en">Licence</span></h3>
+        <p class="mono">RBQ 5834-5539-01</p>
+      </div>
+    </div>
+
+    <div class="pied-bas">
+      <p>© 2026 Sinistr</p>
+      <p><span class="fr">Ce site ne dépose aucun témoin et n’utilise aucun traceur.</span><span class="en">This site sets no cookies and uses no trackers.</span></p>
+    </div>
+  </div>
+</footer>
+
+<a class="barre" href="tel:+18776574647">
+  <span class="fr">Appeler maintenant — 24/7</span>
+  <span class="en">Call now — 24/7</span>
+</a>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"EmergencyService",
+  "name":"Sinistr — Après-sinistre Saint-Laurent",
+  "description":"Restauration après sinistre : dégât d'eau, incendie, moisissure, décontamination et reconstruction. Licence RBQ 5834-5539-01, techniciens certifiés IICRC.",
+  "url":"https://hostnextline.github.io/sinistr/",
+  "image":"https://hostnextline.github.io/sinistr/assets/og.jpg",
+  "telephone":"+1-877-657-4647",
+  "email":"urgence@sinistr.ca",
+  "availableLanguage":["fr-CA","en"],
+  "openingHoursSpecification":{
+    "@type":"OpeningHoursSpecification",
+    "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens":"00:00","closes":"23:59"
+  },
+  "areaServed":[
+    {"@type":"City","name":"Montréal"},{"@type":"City","name":"Laval"},
+    {"@type":"City","name":"Longueuil"},{"@type":"City","name":"Terrebonne"},
+    {"@type":"City","name":"Brossard"},{"@type":"City","name":"Saint-Jérôme"}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ── Branchement du formulaire ───────────────────────────────
+     Tant que cette adresse est vide, le formulaire le DIT et renvoie
+     vers le téléphone. Il ne peut jamais afficher un faux succès :
+     c'est précisément le défaut du site remplacé, dont la soumission
+     attendait une seconde puis annonçait « Message envoyé! » sans
+     rien transmettre. Renseignez l'URL et le formulaire fonctionne. */
+  var ENDPOINT_FORMULAIRE = "";
+
+  var racine = document.documentElement;
+  var doux = matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* ── Langue ──────────────────────────────────────────────── */
+  var boutons = document.querySelectorAll("[data-set-lang]");
+  function poserLangue(code, memoriser){
+    racine.setAttribute("data-lang", code);
+    racine.setAttribute("lang", code === "en" ? "en" : "fr");
+    Array.prototype.forEach.call(boutons, function(b){
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === code));
+    });
+    majHorloge();
+    if (memoriser) { try { localStorage.setItem("sinistr-langue", code); } catch(e){} }
+  }
+  Array.prototype.forEach.call(boutons, function(b){
+    b.addEventListener("click", function(){ poserLangue(b.getAttribute("data-set-lang"), true); });
+  });
+
+  /* ── Horloge de Montréal ─────────────────────────────────────
+     L'entreprise est ouverte en permanence : afficher l'heure locale
+     rend la promesse vérifiable au lieu de simplement la répéter. */
+  function majHorloge(){
+    var cibles = document.querySelectorAll("[data-horloge]");
+    if (!cibles.length) return;
+    var t;
+    try {
+      t = new Intl.DateTimeFormat(racine.lang === "en" ? "en-CA" : "fr-CA",
+        { hour:"2-digit", minute:"2-digit", hour12:false, timeZone:"America/Montreal" }).format(new Date());
+    } catch(e){ return; }
+    Array.prototype.forEach.call(cibles, function(el){ el.textContent = t; });
+  }
+  majHorloge();
+  setInterval(majHorloge, 30000);
+
+  try {
+    var memo = localStorage.getItem("sinistr-langue");
+    if (memo === "en" || memo === "fr") poserLangue(memo, false);
+  } catch(e){}
+
+  /* ── Révélations au défilement ───────────────────────────────
+     Filet ciblé : tout élément resté visible sans être dévoilé est
+     révélé. Sur un chargement normal en haut de page aucun ne l'est,
+     donc l'animation reste intacte — mais le contenu n'est jamais
+     piégé à opacity:0 hors navigateur réel. */
+  var cibles = document.querySelectorAll(".reveler");
+  function revelerCeQuiEstVisible(){
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    Array.prototype.forEach.call(cibles, function(el){
+      if (el.classList.contains("vu")) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < h && r.bottom > 0) el.classList.add("vu");
+    });
+  }
+  if (doux.matches || !("IntersectionObserver" in window)) {
+    Array.prototype.forEach.call(cibles, function(el){ el.classList.add("vu"); });
+  } else {
+    var obs = new IntersectionObserver(function(entrees){
+      entrees.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("vu"); obs.unobserve(e.target); }
+      });
+    }, { rootMargin:"0px 0px -12% 0px", threshold:0.08 });
+    Array.prototype.forEach.call(cibles, function(el){ obs.observe(el); });
+    setTimeout(revelerCeQuiEstVisible, 1200);
+    setTimeout(revelerCeQuiEstVisible, 3000);
+    addEventListener("beforeprint", function(){
+      Array.prototype.forEach.call(cibles, function(el){ el.classList.add("vu"); });
+    });
+  }
+
+  /* ── Formulaire ──────────────────────────────────────────── */
+  var form = document.getElementById("formulaire");
+  var reponse = document.getElementById("reponse");
+  function estEN(){ return racine.getAttribute("data-lang") === "en"; }
+  var TEL = '<a href="tel:+18776574647">1 877 657-4647</a>';
+
+  function repondre(html){ reponse.innerHTML = html; reponse.hidden = false; }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    if (!form.checkValidity()){
+      repondre(estEN()
+        ? "Please complete every field so we can call you back."
+        : "Remplissez tous les champs pour qu’on puisse vous rappeler.");
+      var premier = form.querySelector(":invalid");
+      if (premier) premier.focus();
+      return;
+    }
+
+    if (!ENDPOINT_FORMULAIRE){
+      repondre(estEN()
+        ? "This form is not connected yet, so nothing was sent — we would rather tell you than let you wait for a call that never comes. Please call " + TEL + "."
+        : "Ce formulaire n’est pas encore branché : rien n’a été envoyé. On préfère vous le dire plutôt que de vous laisser attendre un rappel qui n’arriverait jamais. Appelez le " + TEL + ".");
+      return;
+    }
+
+    var bouton = form.querySelector("button[type=submit]");
+    bouton.disabled = true;
+    fetch(ENDPOINT_FORMULAIRE, {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({
+        nom: form.nom.value, telephone: form.telephone.value,
+        courriel: form.courriel.value, message: form.message.value
+      })
+    }).then(function(r){
+      if (!r.ok) throw new Error(r.status);
+      form.reset();
+      repondre(estEN() ? "Request received. We will call you back."
+                       : "Demande reçue. On vous rappelle.");
+    }).catch(function(){
+      repondre(estEN()
+        ? "The request could not be sent. Please call " + TEL + "."
+        : "La demande n’a pas pu être envoyée. Appelez le " + TEL + ".");
+    }).then(function(){ bouton.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
