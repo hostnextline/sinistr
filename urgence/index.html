@@ -111,7 +111,9 @@ html[data-lang="en"] .en{display:revert}
 /* ── Hero ────────────────────────────────────────────────────── */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
 .hero-media{position:absolute;inset:0;z-index:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:72% 50%}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover;object-position:72% 50%}
+.hero-media video{position:absolute;inset:0;opacity:0;transition:opacity 700ms ease}
+.hero-media video.visible{opacity:1}
 .hero-media::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(96deg,var(--noir) 8%,rgba(11,14,17,.93) 40%,rgba(11,14,17,.42) 78%);
@@ -269,6 +271,18 @@ html[data-lang="en"] .en{display:revert}
 .reveler.d1{transition-delay:70ms}
 .reveler.d2{transition-delay:140ms}
 
+/* ── Les gestes à poser avant l'arrivée ──────────────────────── */
+.gestes{display:grid;gap:12px;margin-top:var(--s2)}
+.gestes li{
+  display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start;
+  font-size:14.5px;color:var(--gris);
+}
+.gestes li::before{
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--gris-doux);
+  margin-top:9px;margin-left:6px;
+}
+.gestes.stop li::before{background:var(--signal)}
+
 @media (max-width:880px){
   body{font-size:16px}
   .duo{grid-template-columns:1fr;gap:var(--s4)}
@@ -277,7 +291,7 @@ html[data-lang="en"] .en{display:revert}
   .section--serre{padding-block:64px}
   .hero-contenu{padding-block:var(--s7) var(--s8)}
   .hero-media::after{background:linear-gradient(172deg,var(--noir) 14%,rgba(11,14,17,.9) 50%,rgba(11,14,17,.6) 100%)}
-  .hero-media img{object-position:64% 44%}
+  .hero-media img,.hero-media video{object-position:64% 44%}
   .etape{grid-template-columns:1fr;gap:6px}
   .rappel .enveloppe{grid-template-columns:1fr;padding-block:var(--s6)}
   .barre{display:block}
@@ -320,6 +334,8 @@ html[data-lang="en"] .en{display:revert}
   <div class="hero-media">
     <img src="assets/hero.jpg" width="1600" height="894" fetchpriority="high"
          alt="Sous-sol inondé dans l’obscurité : un filet d’eau tombe d’une conduite du plafond et éclabousse l’eau stagnante, éclairé par une lampe de chantier.">
+    <video id="video-hero" muted loop playsinline preload="none"
+           poster="assets/hero.jpg" data-src="assets/hero.mp4" aria-hidden="true" tabindex="-1"></video>
   </div>
 
   <div class="enveloppe hero-contenu">
@@ -429,10 +445,10 @@ html[data-lang="en"] .en{display:revert}
       <li class="etape">
         <span class="etape-n">04</span>
         <div>
-          <h3><span class="fr">On assèche, on décontamine, on reconstruit</span><span class="en">We dry, decontaminate and rebuild</span></h3>
+          <h3><span class="fr">On assèche et on décontamine</span><span class="en">We dry and decontaminate</span></h3>
           <p>
-            <span class="fr">Déshumidificateurs et ventilateurs industriels, traitement antimicrobien, filtration HEPA. Puis la reconstruction jusqu’aux finitions.</span>
-            <span class="en">Dehumidifiers and industrial air movers, antimicrobial treatment, HEPA filtration. Then the rebuild through to the finishes.</span>
+            <span class="fr">Déshumidificateurs et ventilateurs industriels, traitement antimicrobien, filtration HEPA, tests de qualité de l’air avant et après. Les lieux vous sont rendus sains.</span>
+            <span class="en">Dehumidifiers and industrial air movers, antimicrobial treatment, HEPA filtration, air quality testing before and after. The premises are handed back safe.</span>
           </p>
         </div>
       </li>
@@ -445,8 +461,8 @@ html[data-lang="en"] .en{display:revert}
     <div class="reveler intro">
       <p class="etiquette"><span class="fr">Les services</span><span class="en">Services</span></p>
       <h2 class="titre">
-        <span class="fr">De l’urgence à la remise des clés</span>
-        <span class="en">From the emergency to the handover</span>
+        <span class="fr">Ce qu’on traite en urgence</span>
+        <span class="en">What we handle as an emergency</span>
       </h2>
     </div>
 
@@ -457,11 +473,11 @@ html[data-lang="en"] .en{display:revert}
           <div class="service"><h4><span class="fr">Dégât d’eau</span><span class="en">Water damage</span></h4>
             <p><span class="fr">Extraction, assèchement et restauration après inondation, refoulement ou fuite.</span><span class="en">Extraction, drying and restoration after flooding, backup or leak.</span></p></div>
           <div class="service"><h4><span class="fr">Incendie et fumée</span><span class="en">Fire and smoke</span></h4>
-            <p><span class="fr">Nettoyage des suies, désodorisation, traitement de l’air et reconstruction.</span><span class="en">Soot cleaning, deodorization, air treatment and rebuilding.</span></p></div>
+            <p><span class="fr">Nettoyage des suies et résidus de combustion, désodorisation, traitement et filtration de l’air.</span><span class="en">Soot and combustion residue cleaning, deodorization, air treatment and filtration.</span></p></div>
           <div class="service"><h4><span class="fr">Moisissure</span><span class="en">Mould</span></h4>
             <p><span class="fr">Détection, confinement, décontamination et traitement antimicrobien préventif.</span><span class="en">Detection, containment, decontamination and preventive antimicrobial treatment.</span></p></div>
           <div class="service"><h4><span class="fr">Nettoyage après sinistre</span><span class="en">Post-loss cleaning</span></h4>
-            <p><span class="fr">Surfaces, contenu, biens personnels et remise en état finale.</span><span class="en">Surfaces, contents, personal belongings and final restoration.</span></p></div>
+            <p><span class="fr">Surfaces, contenu, biens personnels et assainissement des lieux.</span><span class="en">Surfaces, contents, personal belongings and sanitizing of the premises.</span></p></div>
           <div class="service"><h4><span class="fr">Barricadage et vandalisme</span><span class="en">Board-up and vandalism</span></h4>
             <p><span class="fr">Sécurisation des ouvertures, clôtures temporaires, protection contre les intempéries.</span><span class="en">Securing openings, temporary fencing, weather protection.</span></p></div>
           <div class="service"><h4><span class="fr">Scène de trauma</span><span class="en">Trauma scene</span></h4>
@@ -471,17 +487,8 @@ html[data-lang="en"] .en{display:revert}
         </div>
       </div>
 
-      <div class="famille reveler d1">
-        <h3><span class="fr">Construction</span><span class="en">Construction</span></h3>
-        <div class="services">
-          <div class="service"><h4><span class="fr">Reconstruction après sinistre</span><span class="en">Post-loss rebuilding</span></h4>
-            <p><span class="fr">Évaluation structurelle, démolition contrôlée, reconstruction et finitions, coordonnées avec votre assureur.</span><span class="en">Structural assessment, controlled demolition, rebuilding and finishes, coordinated with your insurer.</span></p></div>
-          <div class="service"><h4><span class="fr">Rénovation structurelle</span><span class="en">Structural renovation</span></h4>
-            <p><span class="fr">Fondations, charpente, étanchéisation, revêtements extérieurs, toiture et mise aux normes.</span><span class="en">Foundations, framing, waterproofing, exterior cladding, roofing and code compliance.</span></p></div>
-        </div>
-      </div>
 
-      <div class="famille reveler d2">
+      <div class="famille reveler d1">
         <h3><span class="fr">Prévention</span><span class="en">Prevention</span></h3>
         <div class="services">
           <div class="service"><h4><span class="fr">Recherche de cause d’infiltration</span><span class="en">Infiltration source investigation</span></h4>
@@ -547,24 +554,45 @@ html[data-lang="en"] .en{display:revert}
   </div>
 </section>
 
-<section class="section section--serre" id="protection">
-  <div class="enveloppe duo">
-    <div class="reveler">
-      <p class="etiquette"><span class="fr">La protection</span><span class="en">Your protection</span></p>
+<section class="section section--serre" id="attendant">
+  <div class="enveloppe">
+    <div class="reveler intro">
+      <p class="etiquette"><span class="fr">Avant qu’on arrive</span><span class="en">Before we get there</span></p>
       <h2 class="titre">
-        <span class="fr">Cinq ans, prévus par la loi</span>
-        <span class="en">Five years, written into law</span>
+        <span class="fr">Les gestes qui limitent les dégâts</span>
+        <span class="en">The moves that limit the damage</span>
       </h2>
+      <p class="plomb">
+        <span class="fr">La moisissure peut se développer en 24 à 48 heures après un dégât d’eau. Ce que vous faites dans les premières minutes pèse sur tout le reste — y compris sur ce que votre assureur acceptera.</span>
+        <span class="en">Mould can develop within 24 to 48 hours of water damage. What you do in the first few minutes weighs on everything that follows — including what your insurer will accept.</span>
+      </p>
     </div>
-    <div class="reveler d1">
-      <p class="plomb">
-        <span class="fr">L’article 2118 du Code civil du Québec tient l’entrepreneur responsable de la perte de l’ouvrage causée par un vice de conception, de construction ou du sol, pendant cinq ans après la fin des travaux. Cette protection s’applique de plein droit : elle ne dépend d’aucune promesse commerciale.</span>
-        <span class="en">Article 2118 of the Civil Code of Québec holds the contractor liable for loss of the work caused by a defect in design, construction or the ground, for five years after completion. This protection applies as of right: it depends on no marketing promise.</span>
-      </p>
-      <p class="plomb">
-        <span class="fr">Elle suppose que les travaux soient exécutés par un entrepreneur titulaire d’une licence de la Régie du bâtiment. C’est la raison pour laquelle le numéro est affiché en haut de cette page plutôt qu’en petits caractères en bas.</span>
-        <span class="en">It does require the work to be carried out by a contractor holding a Régie du bâtiment licence. That is why the number appears at the top of this page rather than in small print at the bottom.</span>
-      </p>
+
+    <div class="services reveler d1">
+      <div class="service">
+        <h4><span class="fr">Dégât d’eau</span><span class="en">Water damage</span></h4>
+        <ul class="gestes">
+          <li><span class="fr">Coupez l’eau et l’électricité</span><span class="en">Shut off the water and the power</span></li>
+          <li><span class="fr">Documentez les dommages avec des photos</span><span class="en">Document the damage with photographs</span></li>
+          <li><span class="fr">Appelez votre assureur et un expert certifié</span><span class="en">Call your insurer and a certified specialist</span></li>
+        </ul>
+      </div>
+      <div class="service">
+        <h4><span class="fr">Incendie et fumée</span><span class="en">Fire and smoke</span></h4>
+        <ul class="gestes stop">
+          <li><span class="fr">Ne réintégrez pas les lieux sans autorisation</span><span class="en">Do not re-enter without authorization</span></li>
+          <li><span class="fr">Aérez dès que possible pour évacuer la fumée</span><span class="en">Ventilate as soon as possible to clear the smoke</span></li>
+          <li><span class="fr">Contactez votre assureur dans les 24 heures</span><span class="en">Contact your insurer within 24 hours</span></li>
+        </ul>
+      </div>
+      <div class="service">
+        <h4><span class="fr">Moisissure</span><span class="en">Mould</span></h4>
+        <ul class="gestes stop">
+          <li><span class="fr">Inspectez les zones humides — sous-sol, salle de bain</span><span class="en">Inspect damp areas — basement, bathroom</span></li>
+          <li><span class="fr">Ne touchez pas la moisissure sans protection</span><span class="en">Do not touch mould without protection</span></li>
+          <li><span class="fr">Faites appel à un expert pour la décontamination</span><span class="en">Call a specialist for the decontamination</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -669,7 +697,7 @@ html[data-lang="en"] .en{display:revert}
   "@context":"https://schema.org",
   "@type":"EmergencyService",
   "name":"Sinistr — Après-sinistre Saint-Laurent",
-  "description":"Urgence après-sinistre 24/7 : dégât d'eau, incendie, moisissure, décontamination et reconstruction. Licence RBQ 5834-5539-01, techniciens certifiés IICRC.",
+  "description":"Urgence après-sinistre 24/7 : dégât d'eau, incendie, moisissure, décontamination et sécurisation. Licence RBQ 5834-5539-01, techniciens certifiés IICRC.",
   "url":"https://hostnextline.github.io/sinistr/urgence/",
   "image":"https://hostnextline.github.io/sinistr/urgence/assets/og.jpg",
   "telephone":"+1-877-657-4647",
@@ -758,6 +786,27 @@ html[data-lang="en"] .en{display:revert}
       Array.prototype.forEach.call(cibles, function(el){ el.classList.add("vu"); });
     });
   }
+
+  /* ── Vidéo du hero ───────────────────────────────────────────
+     Pas de src au chargement : le LCP est donc le poster JPEG.
+     « preload=none » ne télécharge rien tant qu'on ne le demande
+     pas, donc attendre « canplay » avant play() serait un
+     interblocage. On ne dévoile qu'au premier « playing », pour
+     ne jamais montrer un cadre noir si la lecture échoue. */
+  var video = document.getElementById("video-hero");
+  function brancherVideo(){
+    if (!video || doux.matches) return;
+    var co = navigator.connection;
+    if (co && (co.saveData || /(^|-)2g$/.test(co.effectiveType || ""))) return;
+    video.src = video.getAttribute("data-src");
+    video.preload = "auto";
+    video.load();
+    video.addEventListener("playing", function(){ video.classList.add("visible"); }, { once: true });
+    var p = video.play();
+    if (p && p.catch) p.catch(function(){ video.classList.remove("visible"); });
+  }
+  if (document.readyState === "complete") brancherVideo();
+  else addEventListener("load", brancherVideo, { once: true });
 
   var form = document.getElementById("formulaire");
   var reponse = document.getElementById("reponse");
